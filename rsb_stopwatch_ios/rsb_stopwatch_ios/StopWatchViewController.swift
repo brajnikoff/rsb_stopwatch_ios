@@ -53,8 +53,8 @@ class StopWatchViewController: UIViewController {
         
         print(UIFont.fontNames(forFamilyName: "Palatino"))
         
-        let rightAttrs = [NSAttributedString.Key.foregroundColor: UIColor.white,
-                          NSAttributedString.Key.font: UIFont(name: "Palatino-Bold", size: 32)
+        let rightAttrs: [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor: UIColor.white,
+                          NSAttributedString.Key.font: UIFont(name: "Palatino-Bold", size: 32)!
         ]
         let rightAttrText = NSAttributedString(string: "Start", attributes: rightAttrs)
 
