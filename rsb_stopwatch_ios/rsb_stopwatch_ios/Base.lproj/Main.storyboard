@@ -49,7 +49,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujx-bi-8gf" userLabel="Right Button">
                                                 <rect key="frame" x="199" y="0.0" width="183" height="60"/>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="Start"/>
                                                 <connections>
                                                     <action selector="rightButtonTapped:" destination="lIN-1P-ORQ" eventType="touchUpInside" id="5a6-xJ-IgN"/>
                                                 </connections>

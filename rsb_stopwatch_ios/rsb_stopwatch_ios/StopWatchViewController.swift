@@ -10,6 +10,7 @@ import UIKit
 class StopWatchViewController: UIViewController {
     
     // MARK: - Constants
+    private let millisInHour: Double = 60 * 60 * 1000
     private let shortFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateFormat = "mm:ss.SS"
@@ -24,7 +25,19 @@ class StopWatchViewController: UIViewController {
     
     // MARK: - Private properties
     private var startTime: Double = .zero
-    private var currentValue: Double = .zero
+    private var currentValue: Double = .zero {
+        didSet {
+            var df: DateFormatter
+            if currentValue < millisInHour {
+                df = shortFormatter
+            } else {
+                df = longFormatter
+            }
+            displayLabel.text = df.string(from: Date(timeIntervalSince1970: currentValue))
+        }
+    }
+    
+    private var timer: Timer?
     
     // MARK: - Outlets
     @IBOutlet weak var displayLabel: UILabel!
@@ -34,10 +47,18 @@ class StopWatchViewController: UIViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        let components = DateComponents()
-        guard let date = Calendar.current.date(from: components) else { return }
-        let initialDisplay = shortFormatter.string(from: date)
-        displayLabel.text = initialDisplay
+        currentValue = .zero
+        rightButton.backgroundColor = .green
+        rightButton.tintColor = .white
+        
+        print(UIFont.fontNames(forFamilyName: "Palatino"))
+        
+        let rightAttrs = [NSAttributedString.Key.foregroundColor: UIColor.white,
+                          NSAttributedString.Key.font: UIFont(name: "Palatino-Bold", size: 32)
+        ]
+        let rightAttrText = NSAttributedString(string: "Start", attributes: rightAttrs)
+
+        rightButton.setAttributedTitle(rightAttrText, for: .normal)
     }
     
     // MARK: - Actions
@@ -45,6 +66,7 @@ class StopWatchViewController: UIViewController {
     }
     
     @IBAction func rightButtonTapped(_ sender: UIButton) {
+        
     }
     
     // MARK: - Logic Private
