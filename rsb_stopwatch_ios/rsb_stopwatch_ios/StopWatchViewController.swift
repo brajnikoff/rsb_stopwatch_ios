@@ -10,7 +10,7 @@ import UIKit
 class StopWatchViewController: UIViewController {
     
     // MARK: - Constants
-    private let millisInHour: Double = 60 * 60 * 1000
+    private let secondsInHour: Double = 60 * 60
     private let shortFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateFormat = "mm:ss.SS"
@@ -28,7 +28,7 @@ class StopWatchViewController: UIViewController {
     private var currentValue: Double = .zero {
         didSet {
             var df: DateFormatter
-            if currentValue < millisInHour {
+            if currentValue < secondsInHour {
                 df = shortFormatter
             } else {
                 df = longFormatter
@@ -51,12 +51,13 @@ class StopWatchViewController: UIViewController {
         rightButton.backgroundColor = .green
         rightButton.tintColor = .white
         
-        print(UIFont.fontNames(forFamilyName: "Courier"))
+        print(UIFont.fontNames(forFamilyName: "Arial"))
         
         displayLabel.font = UIFont(name: "Courier", size: 70)
         
-        let rightAttrs: [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor: UIColor.white,
-                          NSAttributedString.Key.font: UIFont(name: "Palatino-Bold", size: 32)!
+        let rightAttrs: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont(name: "Arial-BoldMT", size: 32)!
         ]
         let rightAttrText = NSAttributedString(string: "Start", attributes: rightAttrs)
 
@@ -70,15 +71,16 @@ class StopWatchViewController: UIViewController {
     @IBAction func rightButtonTapped(_ sender: UIButton) {
         timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
-
     }
     
     // MARK: - Logic Private
     @objc private func timerAction() {
+        let currentTime = Date().timeIntervalSince1970
+        
         if startTime == .zero {
-            startTime = Date().timeIntervalSince1970
+            startTime = currentTime - 3595
         }
         
-        currentValue = Date().timeIntervalSince1970 - startTime
+        currentValue = currentTime - startTime
     }
 }
