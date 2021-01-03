@@ -79,7 +79,7 @@ class StopWatchViewController: UIViewController {
     }
     
     private func setupLeftButton() {
-        leftButton.applyStyleStop()
+        leftButton.applyStyleReset()
     }
     
     // MARK: - Actions
@@ -90,8 +90,10 @@ class StopWatchViewController: UIViewController {
     @IBAction func rightButtonTapped(_ sender: UIButton) {
         if isTimerOn {
             stopTimer()
+            rightButton.applyStyleStart()
         } else {
             startTimer()
+            rightButton.applyStyleStop()
         }
     }
     

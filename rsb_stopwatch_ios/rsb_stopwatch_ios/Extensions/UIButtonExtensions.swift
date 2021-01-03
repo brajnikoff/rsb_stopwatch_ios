@@ -8,35 +8,48 @@
 import UIKit
 
 extension UIButton {
-    func applyStyleRed(with title: String) {
-        backgroundColor = .stopColor
-        tintColor = .whiteColor
-        
+    // MARK: Common
+    func applyTimerButtonTextStyle(title: String) {
         let attrs: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.foregroundColor: UIColor.whiteColor,
             NSAttributedString.Key.font: UIFont.buttonFont
         ]
         let attrText = NSAttributedString(string: title, attributes: attrs)
         setAttributedTitle(attrText, for: .normal)
+    }
+    
+    // MARK: By design
+    func applyStyleRed(with title: String) {
+        backgroundColor = .stopColor
+        tintColor = .whiteColor
+        
+        applyTimerButtonTextStyle(title: title)
     }
     
     func applyStyleGreen(with title: String) {
         backgroundColor = .startColor
         tintColor = .whiteColor
         
-        let attrs: [NSAttributedString.Key : Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor.whiteColor,
-            NSAttributedString.Key.font: UIFont.buttonFont
-        ]
-        let attrText = NSAttributedString(string: title, attributes: attrs)
-        setAttributedTitle(attrText, for: .normal)
+        applyTimerButtonTextStyle(title: title)
     }
     
+    func applyStyleGray(with title: String) {
+        backgroundColor = .resetColor
+        tintColor = .whiteColor
+        
+        applyTimerButtonTextStyle(title: title)
+    }
+    
+    // MARK: - By intention
     func applyStyleStart() {
         applyStyleGreen(with: "Start")
     }
  
     func applyStyleStop() {
         applyStyleRed(with: "Stop")
+    }
+    
+    func applyStyleReset() {
+        applyStyleGray(with: "Reset")
     }
 }
