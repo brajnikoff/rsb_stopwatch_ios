@@ -43,10 +43,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBT-IS-QOo" userLabel="Left Button">
                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="60"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="leftButtonTapped:" destination="lIN-1P-ORQ" eventType="touchUpInside" id="35S-wG-t1k"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujx-bi-8gf" userLabel="Right Button">
                                                 <rect key="frame" x="199" y="0.0" width="183" height="60"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="rightButtonTapped:" destination="lIN-1P-ORQ" eventType="touchUpInside" id="5a6-xJ-IgN"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -75,6 +81,11 @@
                             <constraint firstItem="ucp-nU-H7o" firstAttribute="leading" secondItem="akj-wX-qkG" secondAttribute="leading" constant="16" id="unD-js-Cgt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="displayLabel" destination="KvJ-vK-wH7" id="M3e-IN-SG6"/>
+                        <outlet property="leftButton" destination="IBT-IS-QOo" id="xry-IR-uZz"/>
+                        <outlet property="rightButton" destination="Ujx-bi-8gf" id="sOo-mb-9RE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcl-ar-jQc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
