@@ -51,7 +51,9 @@ class StopWatchViewController: UIViewController {
         rightButton.backgroundColor = .green
         rightButton.tintColor = .white
         
-        print(UIFont.fontNames(forFamilyName: "Palatino"))
+        print(UIFont.fontNames(forFamilyName: "Courier"))
+        
+        displayLabel.font = UIFont(name: "Courier", size: 70)
         
         let rightAttrs: [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor: UIColor.white,
                           NSAttributedString.Key.font: UIFont(name: "Palatino-Bold", size: 32)!
@@ -66,9 +68,17 @@ class StopWatchViewController: UIViewController {
     }
     
     @IBAction func rightButtonTapped(_ sender: UIButton) {
-        
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+
     }
     
     // MARK: - Logic Private
-    
+    @objc private func timerAction() {
+        if startTime == .zero {
+            startTime = Date().timeIntervalSince1970
+        }
+        
+        currentValue = Date().timeIntervalSince1970 - startTime
+    }
 }
