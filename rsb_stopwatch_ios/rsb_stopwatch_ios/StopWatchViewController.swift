@@ -10,16 +10,27 @@ import UIKit
 class StopWatchViewController: UIViewController {
     
     // MARK: - Constants
+    private static let utcTimeZone = TimeZone(abbreviation: "UTC")
     private let secondsInHour: Double = 60 * 60
     private let shortFormatter: DateFormatter = {
         let df = DateFormatter()
+        df.timeZone = utcTimeZone
         df.dateFormat = "mm:ss.SS"
         return df
     }()
     
     private let longFormatter: DateFormatter = {
         let df = DateFormatter()
+        df.timeZone = utcTimeZone
         df.dateFormat = "HH:mm:ss.SS"
+        return df
+    }()
+    
+    private let testFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.timeZone = utcTimeZone
+        df.dateStyle = .long
+        df.timeStyle = .long
         return df
     }()
     
