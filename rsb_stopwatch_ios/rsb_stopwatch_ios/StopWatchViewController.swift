@@ -11,6 +11,8 @@ class StopWatchViewController: UIViewController {
     
     // MARK: - Constants
     private static let utcTimeZone = TimeZone(abbreviation: "UTC")
+    
+    private let buttonFont = UIFont(name: "Arial-BoldMT", size: 32)!
     private let secondsInHour: Double = 60 * 60
     private let shortFormatter: DateFormatter = {
         let df = DateFormatter()
@@ -59,29 +61,50 @@ class StopWatchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentValue = .zero
-        rightButton.backgroundColor = .green
-        rightButton.tintColor = .white
         
         print(UIFont.fontNames(forFamilyName: "Arial"))
         
         displayLabel.font = UIFont(name: "Courier", size: 70)
         
+        setupUI()
+    }
+    
+    private func setupUI() {
+        setupRightButton()
+        setupLeftButton()
+    }
+    
+    private func setupRightButton() {
+        rightButton.backgroundColor = .green
+        rightButton.tintColor = .white
+        
         let rightAttrs: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont(name: "Arial-BoldMT", size: 32)!
+            NSAttributedString.Key.font: buttonFont
         ]
         let rightAttrText = NSAttributedString(string: "Start", attributes: rightAttrs)
-
         rightButton.setAttributedTitle(rightAttrText, for: .normal)
+    }
+    
+    private func setupLeftButton() {
+        leftButton.backgroundColor = .red
+        leftButton.tintColor = .white
+        
+        let leftAttrs: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: buttonFont
+        ]
+        let leftAttrText = NSAttributedString(string: "Stop", attributes: leftAttrs)
+        leftButton.setAttributedTitle(leftAttrText, for: .normal)
     }
     
     // MARK: - Actions
     @IBAction func leftButtonTapped(_ sender: UIButton) {
+        stopTimer()
     }
     
     @IBAction func rightButtonTapped(_ sender: UIButton) {
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+        startTimer()
     }
     
     // MARK: - Logic Private
@@ -93,5 +116,14 @@ class StopWatchViewController: UIViewController {
         }
         
         currentValue = currentTime - startTime
+    }
+    
+    private func startTimer() {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+    }
+    
+    private func stopTimer() {
+        timer?.invalidate()
     }
 }

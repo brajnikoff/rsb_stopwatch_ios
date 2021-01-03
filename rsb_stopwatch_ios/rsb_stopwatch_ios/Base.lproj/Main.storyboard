@@ -42,7 +42,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBT-IS-QOo" userLabel="Left Button">
                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="60"/>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="Stop"/>
                                                 <connections>
                                                     <action selector="leftButtonTapped:" destination="lIN-1P-ORQ" eventType="touchUpInside" id="35S-wG-t1k"/>
                                                 </connections>
