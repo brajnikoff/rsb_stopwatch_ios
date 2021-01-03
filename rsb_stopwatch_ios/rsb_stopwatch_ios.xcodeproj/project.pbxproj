@@ -13,6 +13,9 @@
 		309B5B7425A0BF5C00CB80EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 309B5B7325A0BF5C00CB80EC /* Assets.xcassets */; };
 		309B5B7725A0BF5C00CB80EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309B5B7525A0BF5C00CB80EC /* LaunchScreen.storyboard */; };
 		309B5B8225A0CEC200CB80EC /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B5B8125A0CEC200CB80EC /* StopWatchViewController.swift */; };
+		309B5BCA25A1D86200CB80EC /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B5BC925A1D86200CB80EC /* UIButtonExtensions.swift */; };
+		309B5BCE25A1D95D00CB80EC /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B5BCD25A1D95D00CB80EC /* UIFontExtensions.swift */; };
+		309B5BD125A1D9DD00CB80EC /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B5BD025A1D9DD00CB80EC /* UIColorExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		309B5B7625A0BF5C00CB80EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		309B5B7825A0BF5C00CB80EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		309B5B8125A0CEC200CB80EC /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
+		309B5BC925A1D86200CB80EC /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
+		309B5BCD25A1D95D00CB80EC /* UIFontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
+		309B5BD025A1D9DD00CB80EC /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +69,19 @@
 				309B5B7525A0BF5C00CB80EC /* LaunchScreen.storyboard */,
 				309B5B7825A0BF5C00CB80EC /* Info.plist */,
 				309B5B8125A0CEC200CB80EC /* StopWatchViewController.swift */,
+				309B5BCC25A1D94F00CB80EC /* Extensions */,
 			);
 			path = rsb_stopwatch_ios;
+			sourceTree = "<group>";
+		};
+		309B5BCC25A1D94F00CB80EC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				309B5BC925A1D86200CB80EC /* UIButtonExtensions.swift */,
+				309B5BCD25A1D95D00CB80EC /* UIFontExtensions.swift */,
+				309B5BD025A1D9DD00CB80EC /* UIColorExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +155,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				309B5B6B25A0BF5900CB80EC /* AppDelegate.swift in Sources */,
+				309B5BCA25A1D86200CB80EC /* UIButtonExtensions.swift in Sources */,
+				309B5BCE25A1D95D00CB80EC /* UIFontExtensions.swift in Sources */,
+				309B5BD125A1D9DD00CB80EC /* UIColorExtensions.swift in Sources */,
 				309B5B8225A0CEC200CB80EC /* StopWatchViewController.swift in Sources */,
 				309B5B6D25A0BF5900CB80EC /* SceneDelegate.swift in Sources */,
 			);
