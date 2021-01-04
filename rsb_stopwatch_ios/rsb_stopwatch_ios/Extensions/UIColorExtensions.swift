@@ -13,6 +13,7 @@ extension UIColor {
     static let greenColor = UIColor.green
     static let whiteColor = UIColor.white
     static let grayColor = UIColor.lightGray
+    static let darkGrayColor = UIColor.darkGray
     
     // MARK: - By intention
     static var startColor: UIColor {
@@ -25,5 +26,9 @@ extension UIColor {
     
     static var resetColor: UIColor {
         grayColor
+    }
+    
+    static var inactiveResetColor: UIColor {
+        darkGrayColor
     }
 }

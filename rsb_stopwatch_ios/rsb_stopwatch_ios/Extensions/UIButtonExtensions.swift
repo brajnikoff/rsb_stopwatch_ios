@@ -40,6 +40,13 @@ extension UIButton {
         applyTimerButtonTextStyle(title: title)
     }
     
+    func applyStyleDarkGray(with title: String) {
+        backgroundColor = .inactiveResetColor
+        tintColor = .whiteColor
+        
+        applyTimerButtonTextStyle(title: title)
+    }
+    
     // MARK: - By intention
     func applyStyleStart() {
         applyStyleGreen(with: "Start")
@@ -51,5 +58,9 @@ extension UIButton {
     
     func applyStyleReset() {
         applyStyleGray(with: "Reset")
+    }
+    
+    func applyStyleResetInactive() {
+        applyStyleDarkGray(with: "Reset")
     }
 }

@@ -70,39 +70,59 @@ class StopWatchViewController: UIViewController {
     }
     
     private func setupUI() {
-        setupRightButton()
-        setupLeftButton()
+        configureRightButtonAsStart()
+        configureLeftButtonAsInactiveReset()
     }
     
-    private func setupRightButton() {
+    private func configureRightButtonAsStart() {
         rightButton.applyStyleStart()
     }
     
-    private func setupLeftButton() {
-        leftButton.applyStyleReset()
+    private func configureLeftButtonAsInactiveReset() {
+        leftButton.applyStyleResetInactive()
+        leftButton.isUserInteractionEnabled = false
     }
     
     // MARK: - Actions
     @IBAction func leftButtonTapped(_ sender: UIButton) {
-        
+        resetCommand()
     }
     
     @IBAction func rightButtonTapped(_ sender: UIButton) {
         if isTimerOn {
-            stopTimer()
-            rightButton.applyStyleStart()
+            stopCommand()
         } else {
-            startTimer()
-            rightButton.applyStyleStop()
+            startCommand()
         }
     }
     
     // MARK: - Logic Private
+    
+    private func stopCommand() {
+        stopTimer()
+        rightButton.applyStyleStart()
+    }
+    
+    private func startCommand() {
+        startTimer()
+        rightButton.applyStyleStop()
+        leftButton.isUserInteractionEnabled = true
+        leftButton.applyStyleReset()
+    }
+    
+    private func resetCommand() {
+        stopCommand()
+        configureLeftButtonAsInactiveReset()
+        currentValue = .zero
+        startTime = .zero
+    }
+    
+    // MARK: Timer logic
     @objc private func timerAction() {
         let currentTime = Date().timeIntervalSince1970
         
         if startTime == .zero {
-            startTime = currentTime - 3595
+            startTime = currentTime// - 3595
         }
         
         currentValue = currentTime - startTime
