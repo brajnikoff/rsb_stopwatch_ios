@@ -53,6 +53,8 @@ class StopWatchViewController: UIViewController {
     private var isTimerOn = false
     
     // MARK: - Outlets
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var displayContainerView: UIView!
     @IBOutlet weak var displayLabel: UILabel!
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
@@ -70,6 +72,11 @@ class StopWatchViewController: UIViewController {
     }
     
     private func setupUI() {
+        view.backgroundColor = .backGroundColor
+        containerView.backgroundColor = .clear
+        displayContainerView.backgroundColor = .clear
+        displayLabel.textColor = .displayColor
+        
         configureRightButtonAsStart()
         configureLeftButtonAsInactiveReset()
     }

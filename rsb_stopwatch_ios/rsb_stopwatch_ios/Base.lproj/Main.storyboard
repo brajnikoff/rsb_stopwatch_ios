@@ -30,7 +30,6 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="KvJ-vK-wH7" secondAttribute="trailing" id="9lS-d4-wJH"/>
                                             <constraint firstItem="KvJ-vK-wH7" firstAttribute="leading" secondItem="u4Q-Mg-GHv" secondAttribute="leading" id="f9M-Kw-hRJ"/>
@@ -82,6 +81,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="containerView" destination="ucp-nU-H7o" id="XQW-HH-G7R"/>
+                        <outlet property="displayContainerView" destination="u4Q-Mg-GHv" id="z3d-kQ-aRH"/>
                         <outlet property="displayLabel" destination="KvJ-vK-wH7" id="M3e-IN-SG6"/>
                         <outlet property="leftButton" destination="IBT-IS-QOo" id="xry-IR-uZz"/>
                         <outlet property="rightButton" destination="Ujx-bi-8gf" id="sOo-mb-9RE"/>
