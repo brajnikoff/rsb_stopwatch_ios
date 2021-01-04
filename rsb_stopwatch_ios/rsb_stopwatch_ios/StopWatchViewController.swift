@@ -126,16 +126,12 @@ class StopWatchViewController: UIViewController {
     
     // MARK: Timer logic
     @objc private func timerAction() {
-        let currentTime = Date().timeIntervalSince1970
-        
-        if startTime == .zero {
-            startTime = currentTime// - 3595
-        }
-        
-        currentValue = currentTime - startTime
+        currentValue = Date().timeIntervalSince1970 - startTime
     }
     
     private func startTimer() {
+        startTime = Date().timeIntervalSince1970 - currentValue
+        
         timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
         isTimerOn = true
