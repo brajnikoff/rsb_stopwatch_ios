@@ -9,6 +9,11 @@ import UIKit
 
 extension UIButton {
     // MARK: Common
+    func applyRoundedCornerWithRadius(_ radius: CGFloat) {
+        layer.cornerRadius = radius
+        layer.masksToBounds = true
+    }
+    
     func applyTimerButtonTextStyle(title: String) {
         let attrs: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.foregroundColor: UIColor.whiteColor,
@@ -20,6 +25,8 @@ extension UIButton {
     
     // MARK: By design
     func applyStyleRed(with title: String) {
+        applyRoundedCornerWithRadius(5.0)
+        
         backgroundColor = .stopColor
         tintColor = .whiteColor
         
@@ -27,6 +34,8 @@ extension UIButton {
     }
     
     func applyStyleGreen(with title: String) {
+        applyRoundedCornerWithRadius(5.0)
+        
         backgroundColor = .startColor
         tintColor = .whiteColor
         
@@ -34,6 +43,8 @@ extension UIButton {
     }
     
     func applyStyleGray(with title: String) {
+        applyRoundedCornerWithRadius(5.0)
+        
         backgroundColor = .resetColor
         tintColor = .whiteColor
         
@@ -41,6 +52,8 @@ extension UIButton {
     }
     
     func applyStyleDarkGray(with title: String) {
+        applyRoundedCornerWithRadius(5.0)
+        
         backgroundColor = .inactiveResetColor
         tintColor = .whiteColor
         
